@@ -1,5 +1,5 @@
 // ==================== OPENROUTER AI CONFIGURATION ====================
-// LISA OMA OPENROUTER API VÕTI: https://openrouter.ai/keys
+// L
 
 const OPENROUTER_CONFIG = {
     API_KEY: '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',  // ← LISA OMA VÕTI SIIA
@@ -7,8 +7,8 @@ const OPENROUTER_CONFIG = {
     ENDPOINT: 'https://openrouter.ai/api/v1/chat/completions',
     
     // KOHUSTUSLIKUD väljad OpenRouteris:
-    SITE_URL: 'https://energiajook.xyz',  // ← Sinu veebilehe URL
-    SITE_NAME: 'energiajook',               // ← Sinu äpi nimi
+    SITE_URL: 'https://energiajook.xyz',  
+    SITE_NAME: 'energiajook',               
     
     // Täiendavad seaded:
     MAX_TOKENS: 1000,
@@ -27,8 +27,8 @@ async function callOpenRouter(messages, systemPrompt = null, maxTokens = null) {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${OPENROUTER_CONFIG.API_KEY}`,
-                'HTTP-Referer': OPENROUTER_CONFIG.SITE_URL,      // Kohustuslik!
-                'X-Title': OPENROUTER_CONFIG.SITE_NAME            // Kohustuslik!
+                'HTTP-Referer': OPENROUTER_CONFIG.SITE_URL,     
+                'X-Title': OPENROUTER_CONFIG.SITE_NAME            
             },
             body: JSON.stringify({
                 model: OPENROUTER_CONFIG.MODEL,
@@ -53,7 +53,7 @@ async function callOpenRouter(messages, systemPrompt = null, maxTokens = null) {
     }
 }
 
-// ==================== QUIZ SOOVITUSED ====================
+// ==================== QUIZ  ====================
 async function getQuizRecommendations(quizAnswers) {
     console.log('🤖 Getting AI recommendations for quiz...');
     
@@ -291,4 +291,5 @@ const AVAILABLE_MODELS = {
     'Claude 3 Sonnet': 'anthropic/claude-3-sonnet',
     'Gemini Pro': 'google/gemini-pro',
     'Llama 3 70B': 'meta-llama/llama-3-70b-instruct'
+
 };
