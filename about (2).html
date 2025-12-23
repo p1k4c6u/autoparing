@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meist - AutoValik</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    <img src="pildid/logo.png.png" alt="Logo" style="max-width: 103%; height: auto;">
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Avaleht</a></li>
+                <li><a href="compare.html" class="nav-link">Võrdle Autosid</a></li>
+                <li><a href="about.html" class="nav-link active">Meist</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="header-container">
+            <h1 class="fade-in">Meist</h1>
+            <p class="fade-in-delay">Tutvuge meie missiooni ja meeskonnaga</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-section">
+        <div class="content-container">
+            
+            <!-- Mission Section -->
+            <div class="about-content slide-in-up">
+                <div class="about-image-container">
+                     <img src="pildid/image2.jpg" alt="Kirjeldus" style="width: 100%; border-radius: 16px;">
+                </div>
+                <div class="about-text">
+                    <h2>Meie Missioon</h2>
+                    <!-- LISA OMA TEKST SIIA -->
+                    <div class="text-placeholder">
+                        <p><strong>Oleme kolm sopra, kes avastasid, et kuradima raske on leida autot</strong></p>
+                        <p>Selgita meie vaartused, misjoon jne</p>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="about-content slide-in-up reverse">
+                <div class="about-text">
+                    <h2>Oskar Louis Kalev</h2>
+                    <!-- LISA OMA TEKST SIIA -->
+                    <div class="text-placeholder">
+                        <p><strong>17 aastane, tahtkuju:kaksik, nutikas, sportlik, kena, harrasmees</strong></p>
+                        <p>Tere, olen Oskar, olen avatud seiklustele kui ka terve paev magamisele. Meeldivad loomad, vabalajal suusatan, surfan. Toetan feminismi, annetan pidevalt ja toetan ka lapsi.</p>
+                        <p>Otsin endale partnerit sellel pikal rannakul, milleks kutsume elu. Olen valmis olema isa. Tahan rajada hea ja toreda kodu koos sinuga.</p>
+                    </div>
+                </div>
+                        <div class="about-image-container">
+                            <img src="pildid/image1.jpg" alt="Kirjeldus" style="width: 100%; border-radius:16px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Values Section -->
+            <div class="values-section slide-in-up">
+                <h2>Meie Väärtused</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3>Täpsus</h3>
+                        <p>Kasutame AI-d, et pakkuda kõige täpsemat informatsiooni</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">⚡</div>
+                        <h3>Kiirus</h3>
+                        <p>Leiame õige auto sinu jaoks minutitega</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Usaldus</h3>
+                        <p>Objektiivne ja läbipaistev info ilma varjatud agendadeta</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🚀</div>
+                        <h3>Innovatsioon</h3>
+                        <p>Pidevalt arendame ja täiustame oma teenust</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="contact-cta slide-in-up">
+                <h2>Küsimused?</h2>
+                <p>Võta meiega julgelt ühendust!</p>
+                <button class="btn-primary" onclick="toggleChatbot()">Alusta vestlust AI-ga</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-trigger" onclick="toggleChatbot()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M20 2H4C2.9 2 2.01 2.9 2.01 4L2 22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM18 14H6V12H18V14ZM18 11H6V9H18V11ZM18 8H6V6H18V8Z" fill="white"/>
+        </svg>
+        <span class="chatbot-badge">AI Abi</span>
+    </div>
+
+    <div class="chatbot-container" id="chatbot">
+        <div class="chatbot-header">
+            <h3>Küsi Meilt</h3>
+            <button class="close-btn" onclick="toggleChatbot()">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="bot-message">
+                Tere! Kuidas saan aidata?
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Kirjuta oma küsimus...">
+            <button onclick="sendMessage()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="currentColor"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="api-config.js"></script>
+    <script src="script.js"></script>
+
+<script type="text/javascript" src="/unprotected/back_to_spaceship.js?hash=4975d460e508829e8fb64d3962bc44ad35f3a95a"></script>
+
+</body>
+</html>

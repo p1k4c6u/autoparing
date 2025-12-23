@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoValik - Leia Oma Ideaalne Auto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                     <img src="logo.png.png" alt="Logo" style="max-width: 103%; height: auto;">
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Avaleht</a></li>
+                <li><a href="compare.html" class="nav-link">Võrdle Autosid</a></li>
+                <li><a href="about.html" class="nav-link">Meist</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title fade-in">Leia Oma Ideaalne Auto</h1>
+                <p class="hero-subtitle fade-in-delay">Nutika küsitluse ja AI abil leiame sulle täiusliku sõiduki</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="content-container">
+            
+            <!-- Quiz Section -->
+            <div class="quiz-section slide-in-left">
+                <div class="quiz-header">
+                    <h2>Alusta Auto Otsimist</h2>
+                    <p>Vasta mõnele lihtsale küsimusele</p>
+                </div>
+
+                <div class="quiz-container">
+                    <!-- Step Indicator -->
+                    <div class="step-indicator">
+                        <div class="step active" data-step="1">1</div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="2">2</div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="3">3</div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="4">4</div>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div class="question-card active" data-question="1">
+                        <h3>Mis on sinu eelarve?</h3>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="low">Kuni 10 000€</button>
+                            <button class="option-btn" data-value="medium">10 000€ - 25 000€</button>
+                            <button class="option-btn" data-value="high">25 000€ - 50 000€</button>
+                            <button class="option-btn" data-value="premium">Üle 50 000€</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="question-card" data-question="2">
+                        <h3>Mis tüüpi auto sa vajad?</h3>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="sedan">Sedaan</button>
+                            <button class="option-btn" data-value="suv">SUV/Maastur</button>
+                            <button class="option-btn" data-value="hatchback">Hatchback</button>
+                            <button class="option-btn" data-value="sport">Sportauto</button>
+                            <button class="option-btn" data-value="van">Pereauto/Van</button>
+                            <button class="option-btn" data-value="electric">Elektri/Hübriid</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="question-card" data-question="3">
+                        <h3>Mis on peamine kasutusotstarve?</h3>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="city">Linnasõit</button>
+                            <button class="option-btn" data-value="highway">Pikad maanteesõidud</button>
+                            <button class="option-btn" data-value="family">Perega reisimine</button>
+                            <button class="option-btn" data-value="offroad">Maastikusõit</button>
+                            <button class="option-btn" data-value="business">Ärisõiduk</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="question-card" data-question="4">
+                        <h3>Mis on sulle kõige olulisem?</h3>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="efficiency">Kütusesäästlikkus</button>
+                            <button class="option-btn" data-value="safety">Turvalisus</button>
+                            <button class="option-btn" data-value="comfort">Mugavus</button>
+                            <button class="option-btn" data-value="performance">Jõudlus</button>
+                            <button class="option-btn" data-value="tech">Tehnoloogia</button>
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div class="question-card results-card" data-question="results">
+                        <h3>Soovitatud Autod</h3>
+                        <div id="quiz-results" class="results-container">
+                            <!-- Results will be populated here -->
+                        </div>
+                        <button class="btn-primary" onclick="resetQuiz()">Alusta Uuesti</button>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="quiz-navigation">
+                        <button class="btn-secondary" id="prevBtn" onclick="changeQuestion(-1)" style="display: none;">Tagasi</button>
+                        <button class="btn-primary" id="nextBtn" onclick="changeQuestion(1)" style="display: none;">Edasi</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- AI Chatbot Section -->
+    <div class="chatbot-trigger" onclick="toggleChatbot()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 17C11.45 17 11 16.55 11 16V12C11 11.45 11.45 11 12 11C12.55 11 13 11.45 13 12V16C13 16.55 12.55 17 12 17ZM13 9H11V7H13V9Z" fill="white"/>
+        </svg>
+        <span class="chatbot-badge">AI Abi</span>
+    </div>
+
+    <div class="chatbot-container" id="chatbot">
+        <div class="chatbot-header">
+            <h3>AI Auto-Assistent</h3>
+            <button class="close-btn" onclick="toggleChatbot()">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="bot-message">
+                Tere! Olen sinu AI auto-assistent. Kuidas saan aidata?
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Kirjuta oma küsimus...">
+            <button onclick="sendMessage()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="currentColor"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="api-config.js"></script>
+    <script src="script.js"></script>
+
+<script type="text/javascript" src="/unprotected/back_to_spaceship.js?hash=4975d460e508829e8fb64d3962bc44ad35f3a95a"></script>
+
+</body>
+</html>
