@@ -7,7 +7,7 @@ let quizAnswers = {
     priority: ''
 };
 
-// Initialize quiz
+// quiz
 document.addEventListener('DOMContentLoaded', function() {
     updateQuizNavigation();
     initializeOptionButtons();
@@ -17,11 +17,11 @@ function initializeOptionButtons() {
     const optionButtons = document.querySelectorAll('.option-btn');
     optionButtons.forEach(btn => {
         btn.addEventListener('click', function() {
-            // Remove selected class from siblings
+            // Remove selected class
             const siblings = this.parentElement.querySelectorAll('.option-btn');
             siblings.forEach(sib => sib.classList.remove('selected'));
             
-            // Add selected class to clicked button
+            // Add selected class
             this.classList.add('selected');
             
             // Save answer
@@ -524,4 +524,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
 });
